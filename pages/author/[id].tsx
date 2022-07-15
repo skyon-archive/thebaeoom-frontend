@@ -2,6 +2,7 @@ import { AuthorDetail as AuthorDetailType, AuthorsApi } from "apis";
 import AuthorDetail from "components/AuthorDetail/AuthorDetail";
 import { AuthorHeader } from "components/Header";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 
 interface BookDetailPageProps {
     data: AuthorDetailType;
@@ -12,6 +13,9 @@ const BookDetailPage: NextPage<BookDetailPageProps> = ({ data }) => {
         <>
             <AuthorHeader />
             <AuthorDetail {...data} />
+            <Head>
+                <title>{data.name} | 저자 | 더배움</title>
+            </Head>
         </>
     );
 };

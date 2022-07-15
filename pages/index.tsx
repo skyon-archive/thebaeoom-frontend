@@ -3,6 +3,7 @@ import { Banner, BannersApi } from "apis/banners";
 import BookShelf from "components/Book/BookShelf";
 import SliderLayout from "components/Layout/SliderLayout";
 import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -66,6 +67,9 @@ const MainPage: NextPage<MainPageProps> = ({ banner, book }) => {
                 </Slider>
             </SliderLayout>
             <BookShelf data={book} />
+            <Head>
+                <title>더배움</title>
+            </Head>
         </>
     );
 };
