@@ -27,7 +27,7 @@ const useBoard = <T>({
     const [currentPage, setCurrentPage] = useState(1);
     const [pageCount, setPageCount] = useState(1);
 
-    const { pageButtonFactory, navigatePrev, navigateNext } = usePage(
+    const { pageButton, navigatePrev, navigateNext } = usePage(
         currentPage,
         pageCount,
     );
@@ -52,7 +52,7 @@ const useBoard = <T>({
             },
         },
         pageButtonProps: {
-            pageButtonFactory,
+            pageButton,
             prevButtonProps: {
                 onClick: navigatePrev,
             },

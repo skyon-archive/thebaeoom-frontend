@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "components/PageButton/PageButton.style";
 
 export interface PageButtonProps {
-    pageButtonFactory: {
+    pageButton: {
         number: number;
         buttonProps: { onClick: () => void };
         isActive: boolean;
@@ -12,7 +12,7 @@ export interface PageButtonProps {
 }
 
 const PageButton = ({
-    pageButtonFactory,
+    pageButton,
     prevButtonProps,
     nextButtonProps,
 }: PageButtonProps) => {
@@ -21,7 +21,7 @@ const PageButton = ({
             <button type="button" {...prevButtonProps}>
                 {"<"}
             </button>
-            {pageButtonFactory.map(({ buttonProps, isActive, number }) => (
+            {pageButton.map(({ buttonProps, isActive, number }) => (
                 <button type="button" key={number} {...buttonProps}>
                     {number}
                 </button>

@@ -24,12 +24,12 @@ const useBookList: UseBookList = ({ data, limit = 10, offset, type }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageCount, setPageCount] = useState(1);
 
-    const { pageButtonFactory, navigatePrev, navigateNext } = usePage(
+    const { pageButton, navigatePrev, navigateNext } = usePage(
         currentPage,
         pageCount,
     );
 
-    const tabFactory = useMemo(() => {
+    const tab = useMemo(() => {
         const publisher = getParam(router.asPath, "publisher");
         return ["더배움", "인성재단", "종이향기", "지식오름"].map(
             (tab, index) => ({
@@ -66,9 +66,9 @@ const useBookList: UseBookList = ({ data, limit = 10, offset, type }) => {
                 onClick: search,
             },
         },
-        tabFactory,
+        tab,
         pageButtonProps: {
-            pageButtonFactory,
+            pageButton,
             prevButtonProps: {
                 onClick: navigatePrev,
             },

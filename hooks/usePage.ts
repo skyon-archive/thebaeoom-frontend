@@ -5,7 +5,7 @@ import { setParam } from "utlis/param";
 interface UsePage {
     (currentPage: number, pageCount: number): {
         pageArray: number[];
-        pageButtonFactory: {
+        pageButton: {
             number: number;
             buttonProps: { onClick: () => void };
             isActive: boolean;
@@ -31,7 +31,7 @@ const usePage: UsePage = (currentPage, pageCount) => {
         );
     }, [currentPage, pageCount]);
 
-    const pageButtonFactory = useMemo(() => {
+    const pageButton = useMemo(() => {
         return pageArray.map((index) => ({
             number: index,
             buttonProps: {
@@ -63,7 +63,7 @@ const usePage: UsePage = (currentPage, pageCount) => {
 
     return {
         pageArray,
-        pageButtonFactory,
+        pageButton,
         navigatePrev,
         navigateNext,
     };

@@ -16,14 +16,14 @@ export interface BookListProps extends BookListTabProps {
 const BookList = ({
     data,
     type,
-    tabFactory,
+    tab,
     pageButtonProps,
     searchProps,
 }: BookListProps) => {
     return (
         <S.Container>
             {type === "/brand" ? (
-                <BookListTab tabFactory={tabFactory} />
+                <BookListTab tab={tab} />
             ) : (
                 <Search {...searchProps} />
             )}
