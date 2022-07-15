@@ -27,7 +27,12 @@ const MainPage: NextPage<MainPageProps> = ({ banner, book }) => {
                     infinite
                 >
                     {banner.map((item) => (
-                        <a href={item.link} target="_blank" rel="noreferrer">
+                        <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={item.id}
+                        >
                             <Image
                                 src={item.image}
                                 width={1024}
@@ -45,6 +50,7 @@ const MainPage: NextPage<MainPageProps> = ({ banner, book }) => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noreferrer"
+                                key={item.id}
                             >
                                 <Image
                                     src={item.image}
@@ -68,7 +74,7 @@ export const getStaticProps: GetStaticProps<MainPageProps> = async () => {
     const { data: banner } = await BannersApi.list({});
     const {
         data: { results: book },
-    } = await BooksApi.list({ ordering: "-created_at", limit: 4 });
+    } = await BooksApi.list({ limit: 4 });
     return {
         props: { banner, book },
         revalidate: 10,
