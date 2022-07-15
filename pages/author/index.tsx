@@ -1,4 +1,4 @@
-import { AuthorsApi, AuthorList as AuthorListType } from "apis";
+import { AuthorList as AuthorListType, AuthorsApi } from "apis";
 import AuthorList from "components/Author/AuthorList";
 import { AuthorHeader } from "components/Header";
 import useSearchPagination, {

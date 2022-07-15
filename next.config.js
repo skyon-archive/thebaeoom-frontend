@@ -10,7 +10,11 @@ const nextConfig = {
         styledComponents: true,
     },
     images: {
-        domains: ["127.0.0.1"],
+        domains: [
+            String(process.env.NEXT_PUBLIC_BASE_URL)
+                .split("//")[1]
+                .split(":")[0],
+        ],
     },
 };
 

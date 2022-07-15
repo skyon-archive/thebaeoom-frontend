@@ -1,10 +1,10 @@
+import { NavigationRoute } from "components/Navigation/Navigation";
 import Link from "next/link";
 import * as S from "./BaseHeader.style";
-import { HeaderRoute } from "./useHeader";
 
 export interface BaseHeaderProps {
     title: string;
-    routes: HeaderRoute[];
+    routes: NavigationRoute[];
 }
 
 const BaseHeader = ({ title, routes }: BaseHeaderProps) => {

@@ -34,6 +34,11 @@ export const getStaticProps: GetStaticProps<ContactPageProps> = async () => {
                         content:
                             "내용을 찾을 수 없습니다. 콘솔에서 보드 메뉴에 '찾아오시는 길'로 게시물을 입력해주세요.",
                         created_at: "",
+                        file: null,
+                        type: "MAP",
+                        previous: null,
+                        next: null,
+                        page: 1,
                     },
                 },
                 revalidate: 10,

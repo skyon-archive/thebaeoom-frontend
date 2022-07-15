@@ -1,5 +1,5 @@
-import React from "react";
 import * as S from "components/PageButton/PageButton.style";
+import React from "react";
 
 export interface PageButtonProps {
     pageButton: {
@@ -21,7 +21,7 @@ const PageButton = ({
             <button type="button" {...prevButtonProps}>
                 {"<"}
             </button>
-            {pageButton.map(({ buttonProps, isActive, number }) => (
+            {pageButton.map(({ buttonProps, number }) => (
                 <button type="button" key={number} {...buttonProps}>
                     {number}
                 </button>

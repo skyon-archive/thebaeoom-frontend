@@ -1,8 +1,6 @@
 import { BookDetail as BookDetailType } from "apis";
 import ArticleLayout from "components/Layout/ArticleLayout";
-import Image from "next/image";
 import { useState } from "react";
-import { formatDate1 } from "utlis/time";
 import * as S from "./BookDescription.style";
 
 interface BookDetailProps {

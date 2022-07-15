@@ -32,21 +32,21 @@ const useBookList: UseBookList = ({ data, limit = 10, offset, type }) => {
     const tab = useMemo(() => {
         const publisher = getParam(router.asPath, "publisher");
         return ["더배움", "인성재단", "종이향기", "지식오름"].map(
-            (tab, index) => ({
-                text: tab,
+            (item, index) => ({
+                text: item,
                 buttonProps: {
                     onClick: () =>
-                        router.push(setParam(router.asPath, "publisher", tab)),
+                        router.push(setParam(router.asPath, "publisher", item)),
                 },
-                isActive: publisher ? tab === publisher : index === 0,
+                isActive: publisher ? item === publisher : index === 0,
             }),
         );
-    }, [router, router.asPath]);
+    }, [router]);
 
     useEffect(() => {
         setPageCount(Math.ceil(data.count / limit));
         setCurrentPage(offset / limit + 1);
-    }, [data]);
+    }, [data, limit, offset]);
 
     return {
         currentPage,

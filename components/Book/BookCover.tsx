@@ -9,7 +9,7 @@ const BookCover = ({
 }: BookPreview & { scale?: number }) => {
     return (
         <Link href={`/book/${isbn}`} passHref>
-            <a>
+            <a href={`/book/${isbn}`}>
                 <Image
                     src={cover}
                     width={100 * scale}

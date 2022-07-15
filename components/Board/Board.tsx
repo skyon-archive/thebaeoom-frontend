@@ -1,4 +1,4 @@
-import { BoardList, BookList } from "apis";
+import { BoardList } from "apis";
 import PageButton from "components/PageButton";
 import Search from "components/Search";
 import { SearchPaginationProps } from "hooks/useSearchPagination";

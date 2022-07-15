@@ -19,6 +19,7 @@ const Book = ({ data, type }: BookProps) => {
                     height={140 * 1.2}
                     objectFit="cover"
                     layout="fixed"
+                    alt={data.title}
                 />
                 <S.Content>
                     <div>

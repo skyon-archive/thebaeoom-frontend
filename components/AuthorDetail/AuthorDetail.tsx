@@ -6,7 +6,6 @@ import blog from "public/social/blog.png";
 import cafe from "public/social/cafe.png";
 import instagram from "public/social/instagram.png";
 import youtube from "public/social/youtube.png";
-import { SocialLink } from "./AuthorDetail.style";
 import * as S from "./AuthorDetail.style";
 
 const AuthorDetail = ({
@@ -40,6 +39,7 @@ const AuthorDetail = ({
                             width={70}
                             height={60}
                             objectFit="contain"
+                            alt="Youtube"
                         />
                     </a>
                 )}
@@ -51,6 +51,7 @@ const AuthorDetail = ({
                             width={70}
                             height={60}
                             objectFit="contain"
+                            alt="블로그"
                         />
                     </a>
                 )}
@@ -62,6 +63,7 @@ const AuthorDetail = ({
                             width={70}
                             height={60}
                             objectFit="contain"
+                            alt="SNS"
                         />
                     </a>
                 )}
@@ -73,6 +75,7 @@ const AuthorDetail = ({
                             width={70}
                             height={60}
                             objectFit="contain"
+                            alt="카페"
                         />
                     </a>
                 )}

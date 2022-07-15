@@ -1,12 +1,9 @@
 import { BoardDetail as BoardDetailType } from "apis";
-import ArticleLayout from "components/Layout/ArticleLayout";
 import Link from "next/link";
 import { formatDate2 } from "utlis/time";
-import { Info } from "./BoardDetail.style";
 import * as S from "./BoardDetail.style";
 
 const BoardDetail = ({
-    id,
     title,
     content,
     file,
@@ -27,6 +24,11 @@ const BoardDetail = ({
                 <span>조회수: {view}</span>
             </S.Info>
             <S.Content dangerouslySetInnerHTML={{ __html: content }} />
+            {file && (
+                <div>
+                    첨부파일 <a href={file}>{file}</a>
+                </div>
+            )}
             {next ? (
                 <div>
                     다음 글&nbsp;{next.id}&nbsp;

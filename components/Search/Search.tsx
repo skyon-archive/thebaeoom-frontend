@@ -1,5 +1,5 @@
-import React from "react";
 import * as S from "components/Search/Search.style";
+import React from "react";
 
 export interface SearchProps {
     formProps: { onSubmit: (e: React.FormEvent) => void };

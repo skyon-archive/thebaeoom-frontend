@@ -1,12 +1,12 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { BoardsApi, BookList, BooksApi } from "apis";
+import { BookList, BooksApi } from "apis";
 import { Banner, BannersApi } from "apis/banners";
 import BookShelf from "components/Book/BookShelf";
 import SliderLayout from "components/Layout/SliderLayout";
 import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 interface MainPageProps {
     banner: Banner[];

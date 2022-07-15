@@ -1,8 +1,13 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "extends": [
     "airbnb",
     "airbnb/hooks",
     "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {
@@ -34,6 +39,11 @@
       {
         "namedComponents": "arrow-function"
       }
-    ]
+    ],
+    "react/no-danger": 0,
+    "no-alert": 0,
+    "no-unused-vars": 0,
+    "react/prop-types": "off",
+    "react/require-default-props": "off"
   }
 }

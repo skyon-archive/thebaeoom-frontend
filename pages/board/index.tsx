@@ -1,8 +1,10 @@
+import { GetServerSideProps } from "next";
+
 const BoardPage = () => {
     return null;
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     return {
         redirect: {
             destination: "/board/notice",

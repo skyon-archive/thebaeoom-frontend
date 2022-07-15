@@ -7,12 +7,13 @@ export interface NavigationRoute {
     displayName: string;
     href: string;
     match: RegExp;
+    isActive: boolean;
 }
 
 const Navigation = () => {
     const router = useRouter();
 
-    const routes: NavigationRoute[] = [
+    const routes: Omit<NavigationRoute, "isActive">[] = [
         {
             name: "about",
             displayName: "회사 소개",
@@ -40,6 +41,11 @@ const Navigation = () => {
         },
     ];
 
+    const newRoutes: NavigationRoute[] = routes.map((route) => ({
+        ...route,
+        isActive: new RegExp(route.match).test(router.asPath),
+    }));
+
     return (
         <S.Container>
             <div>
@@ -48,11 +54,11 @@ const Navigation = () => {
                 </NavigationButton>
             </div>
             <div>
-                {routes.map((route) => (
+                {newRoutes.map((route) => (
                     <NavigationButton
                         key={route.name}
                         href={route.href}
-                        active={route.match.test(router.asPath)}
+                        active={route.isActive}
                     >
                         {route.displayName}
                     </NavigationButton>

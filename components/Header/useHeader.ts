@@ -2,12 +2,8 @@ import { BaseHeaderProps } from "components/Header/BaseHeader";
 import { NavigationRoute } from "components/Navigation/Navigation";
 import { useRouter } from "next/router";
 
-export interface HeaderRoute extends NavigationRoute {
-    isActive: boolean;
-}
-
 interface UseHeader {
-    (routes: NavigationRoute[]): BaseHeaderProps;
+    (routes: Omit<NavigationRoute, "isActive">[]): BaseHeaderProps;
 }
 
 const useHeader: UseHeader = (routes) => {

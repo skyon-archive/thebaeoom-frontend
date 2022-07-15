@@ -1,8 +1,7 @@
-import { BookList, BooksApi, ErrorsApi, PartnershipsApi } from "apis";
+import { PartnershipsApi } from "apis";
 import { useCKEditor } from "ckeditor4-react";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { Field } from "./PartnershipForm.style";
+import React, { useState } from "react";
 import * as S from "./PartnershipForm.style";
 
 const PartnershipForm = () => {

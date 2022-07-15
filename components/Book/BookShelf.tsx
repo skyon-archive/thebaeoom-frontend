@@ -1,7 +1,6 @@
 import type { BookList } from "apis";
 import BookCover from "components/Book/BookCover";
 import React from "react";
-import Book from "./Book";
 import * as S from "./BookShelf.style";
 
 interface BookShelfProps {
