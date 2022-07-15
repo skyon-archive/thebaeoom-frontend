@@ -3,6 +3,7 @@ import BookList from "components/Book/BookList";
 import useBookList, { UseBookListProps } from "components/Book/useBookList";
 import { BookHeader } from "components/Header";
 import { GetServerSideProps, NextPage } from "next";
+import Head from "next/head";
 
 const BookListPage: NextPage<UseBookListProps> = (props) => {
     const bookListProps = useBookList(props);
@@ -11,6 +12,9 @@ const BookListPage: NextPage<UseBookListProps> = (props) => {
         <>
             <BookHeader />
             <BookList {...bookListProps} />
+            <Head>
+                <title>도서 | 더배움</title>
+            </Head>
         </>
     );
 };
@@ -35,7 +39,14 @@ export const getServerSideProps: GetServerSideProps<UseBookListProps> = async ({
             ordering: type === "" ? "title" : undefined,
         });
 
-        return { props: { data, limit: 10, offset: 0, type } };
+        return {
+            props: {
+                data,
+                limit: 10,
+                offset: query.page ? (Number(query.page) - 1) * 10 : 0,
+                type,
+            },
+        };
     } catch (e) {
         return { notFound: true };
     }

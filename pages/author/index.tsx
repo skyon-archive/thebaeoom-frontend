@@ -5,6 +5,7 @@ import useSearchPagination, {
     UseSearchPaginationProps,
 } from "hooks/useSearchPagination";
 import { GetServerSideProps, NextPage } from "next";
+import Head from "next/head";
 
 const AuthorListPage: NextPage<UseSearchPaginationProps<AuthorListType>> = (
     props,
@@ -15,6 +16,9 @@ const AuthorListPage: NextPage<UseSearchPaginationProps<AuthorListType>> = (
         <>
             <AuthorHeader />
             <AuthorList {...authorListProps} />
+            <Head>
+                <title>저자 | 더배움</title>
+            </Head>
         </>
     );
 };

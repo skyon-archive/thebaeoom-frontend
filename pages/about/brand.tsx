@@ -2,6 +2,7 @@ import { BoardDetail, BoardsApi } from "apis";
 import { AboutHeader } from "components/Header";
 import ArticleLayout from "components/Layout/ArticleLayout";
 import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 
 interface ContactPageProps {
     data: BoardDetail;
@@ -14,6 +15,9 @@ const ContactPage: NextPage<ContactPageProps> = ({ data }) => {
             <ArticleLayout>
                 <div dangerouslySetInnerHTML={{ __html: data.content }} />
             </ArticleLayout>
+            <Head>
+                <title>브랜드 | 더배움</title>
+            </Head>
         </>
     );
 };

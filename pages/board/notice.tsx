@@ -5,6 +5,7 @@ import useSearchPagination, {
     UseSearchPaginationProps,
 } from "hooks/useSearchPagination";
 import { GetServerSideProps, NextPage } from "next";
+import Head from "next/head";
 
 const BoardNoticePage: NextPage<UseSearchPaginationProps<BoardList>> = (
     props,
@@ -15,6 +16,9 @@ const BoardNoticePage: NextPage<UseSearchPaginationProps<BoardList>> = (
         <>
             <BoardHeader />
             <Board {...boardProps} />
+            <Head>
+                <title>공지사항 | 더배움</title>
+            </Head>
         </>
     );
 };
