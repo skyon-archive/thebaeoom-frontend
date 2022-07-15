@@ -21,11 +21,15 @@ export const Table = styled.table`
     th {
         background-color: transparent;
         text-align: left;
-        padding: 8px 16px 8px 0;
-        width: 56px;
+        padding: 8px 12px 8px 0;
     }
 
     td {
-        padding: 8px 32px 8px 0;
+        padding: 8px 16px 8px 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #374874;
     }
 `;

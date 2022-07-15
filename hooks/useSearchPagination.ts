@@ -1,20 +1,27 @@
-import { AuthorList, Pagination } from "apis";
+import { Pagination } from "apis";
+import { PageButtonProps } from "components/PageButton";
+import { SearchProps } from "components/Search";
 import usePage from "hooks/usePage";
 import useSearch from "hooks/useSearch";
 import { useEffect, useState } from "react";
-import type { AuthorListProps } from "./AuthorList";
 
-export interface UseAuthorListProps {
-    data: Pagination<AuthorList>;
+export interface UseSearchPaginationProps<T> {
+    data: Pagination<T>;
     limit?: number;
     offset: number;
 }
 
-export interface UseAuthorList {
-    (props: UseAuthorListProps): AuthorListProps;
+export interface SearchPaginationProps<T> {
+    data: T[];
+    searchProps: SearchProps;
+    pageButtonProps: PageButtonProps;
 }
 
-const useAuthorList: UseAuthorList = ({ data, limit = 10, offset }) => {
+const useBoard = <T>({
+    data,
+    limit = 10,
+    offset,
+}: UseSearchPaginationProps<T>): SearchPaginationProps<T> => {
     const { value, onChange, search } = useSearch();
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -31,8 +38,6 @@ const useAuthorList: UseAuthorList = ({ data, limit = 10, offset }) => {
     }, [data]);
 
     return {
-        currentPage,
-        pageCount,
         data: data.results,
         searchProps: {
             formProps: {
@@ -43,18 +48,19 @@ const useAuthorList: UseAuthorList = ({ data, limit = 10, offset }) => {
                 value,
             },
             searchButtonProps: {
-                type: "submit",
                 onClick: search,
             },
         },
-        pageButtonFactory,
-        prevButtonProps: {
-            onClick: navigatePrev,
-        },
-        nextButtonProps: {
-            onClick: navigateNext,
+        pageButtonProps: {
+            pageButtonFactory,
+            prevButtonProps: {
+                onClick: navigatePrev,
+            },
+            nextButtonProps: {
+                onClick: navigateNext,
+            },
         },
     };
 };
 
-export default useAuthorList;
+export default useBoard;

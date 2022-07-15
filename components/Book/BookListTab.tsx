@@ -12,7 +12,7 @@ const BookListTab = ({ tabFactory }: BookListTabProps) => {
     return (
         <S.Container>
             {tabFactory.map(({ buttonProps, isActive, text }) => (
-                <S.Tab key={text} {...buttonProps}>
+                <S.Tab key={text} {...buttonProps} active={isActive}>
                     {text}
                 </S.Tab>
             ))}

@@ -32,9 +32,12 @@ export const Menu = styled.div`
 `;
 
 export const MenuItem = styled.a<{ active: boolean }>`
+    text-decoration: none;
+    color: black;
     ${({ active }) =>
         active &&
         css`
             font-weight: bold;
+            color: #374874;
         `}
 `;

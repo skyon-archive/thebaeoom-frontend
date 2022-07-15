@@ -1,6 +1,7 @@
 import { BookDetail as BookDetailType } from "apis";
 import Image from "next/image";
-import { formatTime } from "utlis/time";
+import Link from "next/link";
+import { formatDate1 } from "utlis/time";
 import * as S from "./BookDetail.style";
 
 interface BookDetailProps {
@@ -26,7 +27,16 @@ const BookDetail = ({ data }: BookDetailProps) => {
                     <tbody>
                         <tr>
                             <th>저자</th>
-                            <td>{data.author.map((author) => author.name)}</td>
+                            <td>
+                                {data.author.map((author) => (
+                                    <Link
+                                        href={`/author/${author.id}`}
+                                        key={author.id}
+                                    >
+                                        {author.name}
+                                    </Link>
+                                ))}
+                            </td>
                             <th>ISBN</th>
                             <td>{data.isbn}</td>
                         </tr>
@@ -38,7 +48,7 @@ const BookDetail = ({ data }: BookDetailProps) => {
                         </tr>
                         <tr>
                             <th>발행일</th>
-                            <td>{formatTime(data.pubDate)}</td>
+                            <td>{formatDate1(data.pubDate)}</td>
                             <th>크기</th>
                             <td>{data.size}</td>
                         </tr>

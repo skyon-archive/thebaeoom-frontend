@@ -32,6 +32,7 @@ export const getServerSideProps: GetServerSideProps<UseBookListProps> = async ({
                 type === "/brand"
                     ? encodeURIComponent(String(query.publisher ?? "더배움"))
                     : undefined,
+            ordering: type === "" ? "title" : undefined,
         });
 
         return { props: { data, limit: 10, offset: 0, type } };

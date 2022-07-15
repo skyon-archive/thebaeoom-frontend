@@ -2,7 +2,7 @@ import { BookDetail as BookDetailType } from "apis";
 import ArticleLayout from "components/Layout/ArticleLayout";
 import Image from "next/image";
 import { useState } from "react";
-import { formatTime } from "utlis/time";
+import { formatDate1 } from "utlis/time";
 import * as S from "./BookDescription.style";
 
 interface BookDetailProps {
@@ -20,15 +20,27 @@ const BookDescription = ({ data }: BookDetailProps) => {
     return (
         <S.Container>
             <S.Tab>
-                <button type="button" onClick={() => setTab("description")}>
+                <S.TabButton
+                    type="button"
+                    onClick={() => setTab("description")}
+                    active={tab === "description"}
+                >
                     도서 소개
-                </button>
-                <button type="button" onClick={() => setTab("author")}>
+                </S.TabButton>
+                <S.TabButton
+                    type="button"
+                    onClick={() => setTab("author")}
+                    active={tab === "author"}
+                >
                     저자 소개
-                </button>
-                <button type="button" onClick={() => setTab("tableOfContents")}>
+                </S.TabButton>
+                <S.TabButton
+                    type="button"
+                    onClick={() => setTab("tableOfContents")}
+                    active={tab === "tableOfContents"}
+                >
                     목차 소개
-                </button>
+                </S.TabButton>
             </S.Tab>
             <ArticleLayout>
                 <div

@@ -1,13 +1,15 @@
-import { AuthorsApi } from "apis";
+import { AuthorsApi, AuthorList as AuthorListType } from "apis";
 import AuthorList from "components/Author/AuthorList";
-import useAuthorList, {
-    UseAuthorListProps,
-} from "components/Author/useAuthorList";
 import { AuthorHeader } from "components/Header";
+import useSearchPagination, {
+    UseSearchPaginationProps,
+} from "hooks/useSearchPagination";
 import { GetServerSideProps, NextPage } from "next";
 
-const AuthorListPage: NextPage<UseAuthorListProps> = (props) => {
-    const authorListProps = useAuthorList(props);
+const AuthorListPage: NextPage<UseSearchPaginationProps<AuthorListType>> = (
+    props,
+) => {
+    const authorListProps = useSearchPagination<AuthorListType>(props);
 
     return (
         <>
@@ -18,7 +20,7 @@ const AuthorListPage: NextPage<UseAuthorListProps> = (props) => {
 };
 
 export const getServerSideProps: GetServerSideProps<
-    UseAuthorListProps
+    UseSearchPaginationProps<AuthorListType>
 > = async ({ query }) => {
     try {
         const { data } = await AuthorsApi.list({

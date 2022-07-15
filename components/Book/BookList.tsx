@@ -6,17 +6,18 @@ import BookListTab, { BookListTabProps } from "./BookListTab";
 import Book from "./Book";
 import * as S from "./BookList.style";
 
-export interface BookListProps extends BookListTabProps, PageButtonProps {
+export interface BookListProps extends BookListTabProps {
     data: BookListType[];
     type: string;
     searchProps: SearchProps;
+    pageButtonProps: PageButtonProps;
 }
 
 const BookList = ({
     data,
     type,
     tabFactory,
-    pageButtonFactory,
+    pageButtonProps,
     searchProps,
 }: BookListProps) => {
     return (
@@ -31,7 +32,7 @@ const BookList = ({
                     <Book data={book} key={book.isbn} type={type} />
                 ))}
             </S.Grid>
-            <PageButton pageButtonFactory={pageButtonFactory} />
+            <PageButton {...pageButtonProps} />
         </S.Container>
     );
 };

@@ -5,12 +5,17 @@ import * as S from "./NavigationButton.style";
 interface NavigationButtonProps {
     href: string;
     children: React.ReactNode;
+    active?: boolean;
 }
 
-const NavigationButton = ({ href, children }: NavigationButtonProps) => {
+const NavigationButton = ({
+    href,
+    children,
+    active,
+}: NavigationButtonProps) => {
     return (
         <Link href={href} passHref>
-            <S.Container>{children}</S.Container>
+            <S.Container active={active}>{children}</S.Container>
         </Link>
     );
 };

@@ -17,7 +17,7 @@ interface UsePage {
 
 const usePage: UsePage = (currentPage, pageCount) => {
     const router = useRouter();
-    const [pageArray, setPageArray] = useState<number[]>([1, 2, 3, 4, 5]);
+    const [pageArray, setPageArray] = useState<number[]>([1]);
 
     useEffect(() => {
         const startNumber = Math.max(
@@ -25,7 +25,7 @@ const usePage: UsePage = (currentPage, pageCount) => {
             Math.min(currentPage - 2, pageCount - 4),
         );
         setPageArray(
-            new Array(pageCount)
+            new Array(pageCount || 1)
                 .fill(undefined)
                 .map((_, index) => startNumber + index),
         );
@@ -56,7 +56,7 @@ const usePage: UsePage = (currentPage, pageCount) => {
             setParam(
                 router.asPath,
                 "page",
-                String(Math.min(pageCount, currentPage + 5)),
+                String(Math.min(pageCount || 1, currentPage + 5)),
             ),
         );
     };

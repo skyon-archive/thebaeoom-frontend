@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import * as S from "./Navigation.style";
 import NavigationButton from "./NavigationButton";
 
@@ -9,6 +10,8 @@ export interface NavigationRoute {
 }
 
 const Navigation = () => {
+    const router = useRouter();
+
     const routes: NavigationRoute[] = [
         {
             name: "about",
@@ -40,11 +43,17 @@ const Navigation = () => {
     return (
         <S.Container>
             <div>
-                <NavigationButton href="/">더배움</NavigationButton>
+                <NavigationButton href="/" active>
+                    더배움
+                </NavigationButton>
             </div>
             <div>
                 {routes.map((route) => (
-                    <NavigationButton key={route.name} href={route.href}>
+                    <NavigationButton
+                        key={route.name}
+                        href={route.href}
+                        active={route.match.test(router.asPath)}
+                    >
                         {route.displayName}
                     </NavigationButton>
                 ))}

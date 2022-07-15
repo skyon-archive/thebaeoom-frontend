@@ -7,16 +7,28 @@ export interface PageButtonProps {
         buttonProps: { onClick: () => void };
         isActive: boolean;
     }[];
+    prevButtonProps: { onClick: () => void };
+    nextButtonProps: { onClick: () => void };
 }
 
-const PageButton = ({ pageButtonFactory }: PageButtonProps) => {
+const PageButton = ({
+    pageButtonFactory,
+    prevButtonProps,
+    nextButtonProps,
+}: PageButtonProps) => {
     return (
         <S.Container>
+            <button type="button" {...prevButtonProps}>
+                {"<"}
+            </button>
             {pageButtonFactory.map(({ buttonProps, isActive, number }) => (
                 <button type="button" key={number} {...buttonProps}>
                     {number}
                 </button>
             ))}
+            <button type="button" {...nextButtonProps}>
+                {">"}
+            </button>
         </S.Container>
     );
 };

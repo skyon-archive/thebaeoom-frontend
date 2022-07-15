@@ -1,7 +1,7 @@
 import { BookList } from "apis";
 import Image from "next/image";
 import Link from "next/link";
-import { formatTime } from "utlis/time";
+import { formatDate1 } from "utlis/time";
 import * as S from "./Book.style";
 
 interface BookProps {
@@ -24,12 +24,29 @@ const Book = ({ data, type }: BookProps) => {
                     <div>
                         <h4>{data.title}</h4>
                     </div>
-                    <div>
-                        <p>{data.author.map((author) => author.name)}</p>
-                        <p>{data.publisher}</p>
-                        <p>{formatTime(data.pubDate)}</p>
-                        <p>{data.price.toLocaleString("ko-KR")}원</p>
-                    </div>
+
+                    <S.Table>
+                        <tbody>
+                            <tr>
+                                <th>저자</th>
+                                <td>
+                                    {data.author.map((author) => author.name)}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>출판사</th>
+                                <td>{data.publisher}</td>
+                            </tr>
+                            <tr>
+                                <th>발행일</th>
+                                <td>{formatDate1(data.pubDate)}</td>
+                            </tr>
+                            <tr>
+                                <th>정가</th>
+                                <td>{data.price.toLocaleString("ko-KR")}원</td>
+                            </tr>
+                        </tbody>
+                    </S.Table>
                 </S.Content>
             </S.Container>
         </Link>

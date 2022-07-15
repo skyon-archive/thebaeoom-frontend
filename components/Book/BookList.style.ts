@@ -9,6 +9,6 @@ export const Container = styled.div`
 export const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px 0;
+    gap: 12px;
     margin: 0 auto;
 `;

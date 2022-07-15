@@ -1,10 +1,10 @@
 import axios from "apis/axios";
-import { BoardDetail, BoardList } from "apis/boards/model";
+import { BoardDetail, BoardList, BoardType } from "apis/boards/model";
 import { Pagination } from "apis/model";
 import { AxiosRequestConfig } from "axios";
 
 interface BoardsApiListParameter {
-    type?: "NOTICE" | "FILE" | "ABOUT" | "CONTACT" | "BRAND" | "MAP";
+    type?: BoardType;
     search?: string;
     ordering?:
         | "id"

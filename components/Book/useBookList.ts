@@ -67,12 +67,14 @@ const useBookList: UseBookList = ({ data, limit = 10, offset, type }) => {
             },
         },
         tabFactory,
-        pageButtonFactory,
-        prevButtonProps: {
-            onClick: navigatePrev,
-        },
-        nextButtonProps: {
-            onClick: navigateNext,
+        pageButtonProps: {
+            pageButtonFactory,
+            prevButtonProps: {
+                onClick: navigatePrev,
+            },
+            nextButtonProps: {
+                onClick: navigateNext,
+            },
         },
     };
 };

@@ -4,6 +4,7 @@ import reset from "styled-reset";
 const GlobalStyle = createGlobalStyle`
     ${reset}
     body {
+        font-family: 'NanumSquare', '맑은 고딕', 'Malgun Gothic', 'Dotun';
         min-width: 1024px;
     }
 
