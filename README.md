@@ -3,7 +3,6 @@
 ## 서버 필요 환경
 
 1. Node.js 12.22 이상 (16 이상 권장)
-2. Yarn 패키지 매니저 (`npm install -g yarn`으로 설치)
 
 ## .env
 
@@ -16,12 +15,12 @@
 
 ## 서버를 처음 시작하기 전에
 
-`yarn install`
+`npm ci --force`
 
-`yarn build`
+`npm run build`
 
 ## 서버 실행
 
-`yarn start` - 기본 포트 3000
+`npm run start` - 기본 포트 3000
 
-`yarn start -p {port}` - < port >에 서버가 실행될 포트 숫자 입력 ex) yarn start -p 8080
+`npm run start -- -p {port}` - < port >에 서버가 실행될 포트 숫자 입력 ex) yarn start -p 8080
